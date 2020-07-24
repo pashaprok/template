@@ -1,0 +1,9 @@
+export const DISHES_LOADING = 'DISHES_LOADING';
+export const DISHES_FAILED = 'DISHES_FAILED';
+export const ADD_DISHES = 'ADD_DISHES';
+export const ROOMS_LOADING = 'ROOMS_LOADING';
+export const ROOMS_FAILED = 'ROOMS_FAILED';
+export const ADD_ROOMS = 'ADD_ROOMS';
+export const WORKERS_LOADING = 'WORKERS_LOADING';
+export const ADD_WORKERS = 'ADD_WORKERS';
+export const WORKERS_FAILED = 'WORKERS_FAILED';
