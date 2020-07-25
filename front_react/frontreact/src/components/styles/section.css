@@ -1,0 +1,13 @@
+@import url('../../stylesvar.css');
+
+.section {
+    padding: 60px 0;
+}
+.section.light {
+    background-color: var(--mainWhite);
+    color: var(--mainDark);
+}
+.section.dark {
+    background-color: var(--mainDark);
+    color: var(--mainWhite);
+}

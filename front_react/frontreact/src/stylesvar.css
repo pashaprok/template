@@ -1,0 +1,13 @@
+:root {
+    /* colors */
+    --mainDark: #2e3641;
+    --mainWhite: #fff;
+    --mainBright: #f97e76;
+    --mainSuccess: #a8bd44;
+    --mainSuccessSecond: #95a83a;
+    --mainLight: #c1cfd9;
+    --mainSecondLight: #9eb2c0;
+  
+    /* transitions */
+    --transitionDefault: all .3s ease;
+}
