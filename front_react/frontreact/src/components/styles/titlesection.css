@@ -1,0 +1,48 @@
+@import url('../../stylesvar.css');
+
+.title-section {
+    text-align: center;
+    position: relative;
+}
+.title-section p {
+    margin: 0;
+}
+.light .title-section {
+    color: var(--mainDark);
+}
+.dark .title-section {
+    color: var(--mainWhite);
+}
+.title-section h4 {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.title-section::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+}
+.title-section::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 1px;
+}
+.dark .title-section::after,
+.dark .title-section::before {
+    background-color: var(--mainWhite);
+}
+.light .title-section::after,
+.light .title-section::before {
+    background-color: var(--mainDark);
+}

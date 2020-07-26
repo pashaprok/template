@@ -5,11 +5,11 @@ import './styles/section.css'
 
 export default function Section({theme, children, extraClass, fluid}) {
     let isFluid;
-        if(fluid) {
-            isFluid = <>{children}</>;
-        } else {
-            isFluid = <Container maxWidth="lg">{children}</Container>;
-        }
+    if(fluid) {
+        isFluid = <>{children}</>;
+    } else {
+        isFluid = <Container maxWidth="lg">{children}</Container>;
+    }
 
     return (
         <div className={`section ${theme} ${extraClass}`}>
