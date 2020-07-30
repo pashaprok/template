@@ -36,12 +36,22 @@ class Main extends Component {
     }
 
     render() {
+        const AboutPage = () => {
+            return(
+              <About
+                workers={this.props.workers}
+                isLoading={this.props.workers.isLoading}
+                errMess={this.props.workers.errMess}
+              />
+            );
+        }
+        
         return (
             <div>
                 <Header />
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route exact path="/about" component={About} />
+                    <Route exact path="/about" component={AboutPage} />
                     <Route component={Error} />
                 </Switch>
                 <Footer />

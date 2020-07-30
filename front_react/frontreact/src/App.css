@@ -1,38 +1,65 @@
-.App {
+/* --- about workers section styles --- */
+
+.workers-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.worker-item {
+  margin: 15px auto;
+  width: 100%;
+  max-width: 300px;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.worker-item:hover .worker-item-body {
+  height: 110px;
+  opacity: 1;
+}
+.worker-item-body {
+  height: 45px;
+  opacity: 1;
+  transition: all .55s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(158, 178, 192, 0.6);
+}
+.worker-item-body h4 {
+  font-size: 20px;
+}
+.worker-item-body p {
+  margin: 5px;
+}
+.worker-item img {
+  width: 100%;
+  height: auto;
+}
+.worker-item .social {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 24px;
+}
+.soc-worker-link {
+  transform: color .3s ease;
+  color: var(--mainWhite);
+}
+.soc-worker-link:hover {
+  color: var(--mainBright);
 }
 
-.App-link {
-  color: #61dafb;
+@media only screen and (max-width : 768px) {
+  .worker-item {
+    max-width: 600px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* --- about workers section styles end --- */
