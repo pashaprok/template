@@ -114,7 +114,8 @@ export default function About(props) {
             </Section>
             <Section
                 theme="dark" 
-            ><>
+            >
+                <>
                 <TitleSection
                     title="Our Employees"
                     subtitle="Dolor sit amet consectetur adipisicing elit"
@@ -123,7 +124,8 @@ export default function About(props) {
                     <Grid container>
                         {listWorkers}
                     </Grid>
-                </div></>
+                </div>
+                </>
             </Section>
         </div>
     )

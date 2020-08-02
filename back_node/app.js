@@ -9,11 +9,13 @@ require('dotenv/config');
 
 //imports routes
 const workersRoute = require('./routes/workers');
+const dishesRoute = require('./routes/dishes');
 
 //middlewares
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/workers', workersRoute);
+app.use('/dishes', dishesRoute);
 
 //routes
 app.get('/', (req, res) => {
