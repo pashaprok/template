@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 // import pages
 import Home from './pages/Home'
 import About from './pages/About'
+import Restaurant from './pages/Restaurant'
 import Error from './pages/Error'
 import Header from './pages/Header'
 import Footer from './pages/Footer'
@@ -45,6 +46,16 @@ class Main extends Component {
               />
             );
         }
+
+        const RestaurantPage = () => {
+            return(
+              <Restaurant
+                dishes={this.props.dishes}
+                isLoading={this.props.dishes.isLoading}
+                errMess={this.props.dishes.errMess}
+              />
+            );
+        }
         
         return (
             <div>
@@ -52,6 +63,7 @@ class Main extends Component {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/about" component={AboutPage} />
+                    <Route exact path="/restaurant" component={RestaurantPage} />
                     <Route component={Error} />
                 </Switch>
                 <Footer />
