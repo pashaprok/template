@@ -1,3 +1,4 @@
+@import url('stylesvar.css');
 /* --- about workers section styles --- */
 
 .workers-list {
@@ -67,7 +68,34 @@
 /* --- restaurant page styles --- */
 
 
+.dishes-category-section {
+  margin: 30px auto;
+  padding: 20px;
+  background-color: var(--mainLight) !important;
+}
+.dishes-category-section .category-header {
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid var(--mainDark);
+  margin-bottom: 10px;
+}
+.dishes-category-section .category-header>.title {
+  font-size: 26px;
+}
 
+.dish-item__body {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  font-size: 18px;
+  background-color: var(--mainDark);
+}
+.dish-name a {
+  color: var(--mainLight);
+}
+.dish-price {
+  color: var(--mainBright);
+  font-weight: 700;
+}
 
 
 /* --- restaurant page styles --- */

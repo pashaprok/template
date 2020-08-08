@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import Home from './pages/Home'
 import About from './pages/About'
 import Restaurant from './pages/Restaurant'
+import SingleDish from './pages/SingleDish'
 import Error from './pages/Error'
 import Header from './pages/Header'
 import Footer from './pages/Footer'
@@ -38,13 +39,23 @@ class Main extends Component {
 
     render() {
         const AboutPage = () => {
-            return(
-              <About
-                workers={this.props.workers}
-                isLoading={this.props.workers.isLoading}
-                errMess={this.props.workers.errMess}
-              />
-            );
+          return(
+            <About
+              workers={this.props.workers}
+              isLoading={this.props.workers.isLoading}
+              errMess={this.props.workers.errMess}
+            />
+          );
+        }
+
+        const SingleDishPage = ({match}) => {
+          return(
+            <SingleDish
+              dish={this.props.dishes.dishes.filter((dish) => dish._id === match.params.dishId)[0]}
+              isLoading={this.props.dishes.isLoading}
+              errMess={this.props.dishes.errMess}
+            />
+          );
         }
 
         const RestaurantPage = () => {
@@ -64,6 +75,7 @@ class Main extends Component {
                     <Route exact path="/" component={Home} />
                     <Route exact path="/about" component={AboutPage} />
                     <Route exact path="/restaurant" component={RestaurantPage} />
+                    <Route path="/restaurant/:dishId" component={SingleDishPage} />
                     <Route component={Error} />
                 </Switch>
                 <Footer />

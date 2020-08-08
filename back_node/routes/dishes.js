@@ -36,7 +36,7 @@ router.route('/')
     }
 });
 
-//get specific dish
+//route specific dish
 router.route('/:dishId')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.cors, async (req, res) => {
@@ -65,27 +65,59 @@ router.route('/:dishId')
 })
 .delete(cors.cors, async (req, res) => {
     try{
-        const removedDish = await Dish.removeOne({_id: req.params.postId});
+        const removedDish = await Dish.findByIdAndRemove(req.params.dishId);
         res.json(removedDish);
     } catch(err) {
         res.json({message: err});
     }
 })
-.patch(cors.cors, async (req, res) => {
+
+//route specific dish comments
+router.route('/:dishId/comments')
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.cors, async (req, res) => {
     try{
-        const newComment = {
-            comment: req.body.comment,
-            author: req.body.author
-        }
-        const updatedDish = await Dish.updateOne({_id: req.params.dishId}, {
-            $set: {
-                comments: Array.push(newComment)
-            }
-        });
-        res.json(updatedDish);
+        const dish = await Dish.findById(req.params.dishId);
+        res.json(dish.comments);
     } catch(err) {
         res.json({message: err});
     }
 })
+.post(cors.cors, async (req, res) => {
+    const newComment = {
+        comment: req.body.comment,
+        author: req.body.author
+    }
+    try {
+        const dish = await Dish.findById(req.params.dishId);
+        const addNewComment = await dish.comments.push(newComment);
+        const saveDish = await dish.save(addNewComment);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(saveDish);
+    } catch(err) {
+        res.json({message: err});
+    }
+})
+.delete(cors.cors, async (req, res) => {
+    try {
+        const dish = await Dish.findById(req.params.dishId);
+        const deleteComments = (dish) => {
+            for (var i = (dish.comments.length -1); i >= 0; i--) {
+                dish.comments.id(dish.comments[i]._id).remove();
+            }
+            return dish;
+        }
+        const saveDish = await dish.save(deleteComments(dish));
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(saveDish);
+    } catch(err) {
+        res.json({message: err});
+    }    
+})
+
+//route specific comment for specific dish
+
 
 module.exports = router;
