@@ -1,0 +1,12 @@
+@import url('../../stylesvar.css');
+
+.dish,
+.comments-section {
+    margin-top: 20px;
+}
+.dish-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+ 
